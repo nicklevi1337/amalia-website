@@ -1,0 +1,120 @@
+@font-face {
+  font-family: 'Ami-Regular';
+  src: url('../fonts/Ami-Regular.woff2') format('woff2'),
+  url('../fonts/Ami-Regular.woff') format('woff'),
+       url('../fonts/Ami-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ami-Regular', sans-serif;
+  height: 100%; 
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: center; 
+  gap: 20px; 
+  
+  padding: 10px 0;
+  position: fixed; 
+  width: 100%; 
+  z-index: 10; 
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #bbb7b3;
+}
+
+/* Основной блок */
+.background {
+  background-image: url('../img/main.webp'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column; 
+  color: #fff;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 7rem;
+  margin: 0; 
+  position: relative; 
+  font-weight: 400;
+
+}
+
+.main-title-link{
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.works-button {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  
+ 
+  position: relative;
+  top: 150px; 
+  left: 30px;
+}
+
+.works-button:hover {
+  color: #8b8585;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .main-title {
+      font-size: 4rem;
+  }
+
+  .works-button {
+      font-size: 1.2rem;
+      padding: 8px 16px;
+      top: 150px; 
+      left: 20px; 
+  }
+
+  .nav-link {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+      font-size: 3rem;
+  }
+
+  .works-button {
+      font-size: 1rem;
+      padding: 6px 12px;
+      top: 150px; 
+      left: 10px; 
+  }
+
+  .navbar {
+      gap: 10px;
+  }
+}

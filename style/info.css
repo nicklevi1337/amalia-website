@@ -1,0 +1,259 @@
+@font-face {
+  font-family: 'Ami-Regular';
+  src: url('../fonts/Ami-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Общие стили */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ami-Regular', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Контейнер с фото */
+.photo-container {
+  position: relative;
+  max-width: 100%;
+  background-color: #000000;
+}
+
+.main-photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Топ-меню */
+.top-menu {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+.top-menu.show {
+  display: flex; /* Показать меню */
+}
+
+.menu-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.menu-link:hover {
+  text-decoration: underline;
+}
+
+/* Бургер-меню */
+.burger-menu {
+  display: none; /* Скрываем по умолчанию для больших экранов */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burger-menu span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.burger-menu.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Заголовок "Biography" */
+.vertical-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+/* Основной контент */
+.main-content {
+  background-color: #e60000;
+  padding: 100px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+/* Заголовок страницы Amalia Levi */
+.page-title {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 80px;
+
+}
+
+/* Красный блок с текстом */
+.red-block {
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+  width: 800px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  text-align: justify;
+  padding: 20px;
+  background-color: #e60000;
+  border-radius: 10px;
+}
+
+/* Подвал */
+.footer {
+  background: #fff;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer .contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer p {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.footer p:hover {
+  color: #555;
+  cursor: pointer;
+}
+
+/* Анимации */
+.main-photo {
+  transition: transform 0.7s ease;
+}
+
+.main-content {
+  animation: slide-up 1s ease forwards;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 500px) {
+  .burger-menu {
+    display: flex; /* Показываем бургер-меню */
+  }
+
+  .top-menu {
+    display: none; /* Скрываем обычное меню */
+  }
+
+  .top-menu.show {
+    display: flex; /* Показываем меню при клике на бургер */
+  }
+
+  .red-block {
+    max-width: 95%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    padding: 15px;
+  }
+
+  .vertical-text {
+    font-size: 3rem;
+    top: 10px;
+    left: 10px;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .main-content {
+    padding: 50px 20px;
+  }
+}
+
+@media (min-width: 501px) {
+  .burger-menu {
+    display: none; /* Убираем бургер-меню для больших экранов */
+  }
+
+  .top-menu {
+    display: flex; /* Показываем обычное меню */
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    background: none;
+    padding: 0;
+    gap: 20px;
+  }
+
+  .menu-link {
+    font-size: 1rem;
+    color: #fff;
+  }
+}
+.info-text{
+  font-family:  Bitter Light    ;
+
+}
