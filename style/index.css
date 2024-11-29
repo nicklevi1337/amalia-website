@@ -83,7 +83,7 @@ body, html {
 }
 
 .works-button {
-  font-size: 1.5rem;
+  font-size: 2.6rem;
   color: #fff;
   text-decoration: none;
   padding: 10px 20px;
@@ -102,11 +102,11 @@ body, html {
 /* Адаптивность */
 @media (max-width: 768px) {
   .main-title {
-      font-size: 4rem;
+      font-size: 4.8rem;
   }
 
   .works-button {
-      font-size: 1.2rem;
+      font-size: 2.7rem;
       padding: 8px 16px;
       top: 150px;
       left: 20px;
@@ -123,7 +123,7 @@ body, html {
   }
 
   .works-button {
-      font-size: 1rem;
+      font-size: 2.5rem;
       padding: 6px 12px;
       top: 150px;
       left: 10px;
