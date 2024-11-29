@@ -1,68 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const galleryImages = document.querySelectorAll(".works-gallery img");
-    const popup = document.getElementById("popup");
-    const popupImg = document.getElementById("popup-img");
-    const popupDescription = document.getElementById("popup-description");
-    const closePopupBtn = document.querySelector(".close-popup");
-    const prevBtn = document.querySelector(".prev-popup");
-    const nextBtn = document.querySelector(".next-popup");
-  
-    let currentIndex = 0;
-  
-    // Открытие попапа
-    galleryImages.forEach((img, index) => {
-      img.addEventListener("click", () => {
-        currentIndex = index;
-        showPopup(currentIndex);
-      });
-    });
-  
-    // Показ попапа
-    function showPopup(index) {
-      const img = galleryImages[index];
-      popup.style.display = "flex";
-      popupImg.src = img.src;
-      popupDescription.textContent = img.dataset.description;
-    }
-  
-    // Закрытие попапа
-    closePopupBtn.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-  
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) {
-        popup.style.display = "none";
-      }
-    });
-  
-    // Переключение на предыдущую картину
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      showPopup(currentIndex);
-    });
-  
-    // Переключение на следующую картину
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      showPopup(currentIndex);
-    });
-  
-    // Листание стрелками клавиатуры
-    document.addEventListener("keydown", (e) => {
-      if (popup.style.display === "flex") {
-        if (e.key === "ArrowLeft") {
-          currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-          showPopup(currentIndex);
-        } else if (e.key === "ArrowRight") {
-          currentIndex = (currentIndex + 1) % galleryImages.length;
-          showPopup(currentIndex);
-        } else if (e.key === "Escape") {
-          popup.style.display = "none";
-        }
-      }
-    });
+const popup = document.getElementById('popup');
+const popupImg = document.getElementById('popup-img');
+const popupTitle = document.getElementById('popup-title');
+const popupMaterial = document.getElementById('popup-material');
+
+// Функция для открытия попапа
+document.querySelectorAll('.works-gallery img').forEach((img) => {
+  img.addEventListener('click', (e) => {
+    const description = e.target.getAttribute('data-description');
+
+    // Разбиваем описание на строки (название и материал/размер)
+    const [title, material] = description.split('\n');
+
+    // Устанавливаем данные в попап
+    popupImg.src = e.target.src;
+    popupTitle.textContent = title.trim();
+    popupMaterial.textContent = material.trim();
+
+    popup.style.display = 'flex';
   });
-  
+});
 
+// Закрытие попапа при клике по темной области или по кнопке закрытия
+popup.addEventListener('click', (e) => {
+  // Если клик был не по содержимому попапа (не по .popup-content)
+  if (!e.target.closest('.popup-content')) {
+    popup.style.display = 'none';
+  }
+});
 
+// Закрытие попапа по кнопке
+document.querySelector('.close-popup').addEventListener('click', () => {
+  popup.style.display = 'none';
+});
