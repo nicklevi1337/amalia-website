@@ -1,17 +1,15 @@
 @font-face {
   font-family: 'Ami-Regular';
-  src: 
-       url('../fonts/Ami-Regular.ttf') format('truetype');
+  src: url('../fonts/Ami-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-
 body, html {
   margin: 0;
   padding: 0;
- font-family: 'Ami-Regular', sans-serif;
- box-sizing: border-box;
+  font-family: 'Ami-Regular', sans-serif;
+  box-sizing: border-box;
 }
 
 a {
@@ -32,6 +30,11 @@ a {
   font-size: 1.5rem;
   color: #e60000;
   text-transform: uppercase;
+  transition: opacity 0.3s ease-in-out; /* Плавное изменение прозрачности */
+}
+
+.logo a:hover {
+  opacity: 0.7; /* Прозрачность при наведении */
 }
 
 .menu a {
@@ -53,25 +56,46 @@ a {
   margin-left: 10%; /* Добавить отступ слева */
   position: relative; /* Для точной настройки */
   left: -5%; /* Сдвиг влево, чтобы выровнять ближе к краю */
+  opacity: 0; /* Изначально скрываем */
+  animation: fadeIn 1s ease-out forwards; /* Плавное появление */
+  animation-delay: 0.5s; /* Задержка для появления */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Начальное смещение */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Окончательная позиция */
+  }
 }
 
 .quote {
-  font-family:  Bitter Light    ;
+  font-family: Bitter Light;
   font-size: 1.5rem;
   color: #000000;
   margin: 20px 0;
+  opacity: 0; /* Изначально скрыт */
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 1s; /* Задержка появления для цитаты */
 }
 
 .description {
-  font-family:  Bitter Light    ;
+  font-family: Bitter Light;
   font-size: 1rem;
   line-height: 1.8;
   color: #e60000;
   max-width: 600px;
   margin: 0 auto;
   text-align: justify;
+  opacity: 0; /* Изначально скрыта */
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 1.5s; /* Задержка появления для описания */
 }
 
+/* Галерея изображений — плавное появление */
 .works-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивное число колонок */
@@ -83,13 +107,24 @@ a {
 .works-gallery img {
   width: 100%; /* Изображение занимает всю ширину сеточного блока */
   height: auto; /* Сохраняем пропорции */
-
   object-fit: cover; /* Центрирование и обрезка без искажений */
   max-width: 100%; /* Максимальный размер соответствует ширине ячейки */
   border-radius: 5px; /* Скругленные углы */
-  transition: transform 0.3s ease; /* Анимация увеличения */
+  opacity: 0; /* Изначально скрыты */
+  animation: fadeInImage 1s ease-out forwards;
+  animation-delay: 0.3s; /* Задержка для плавного появления картин */
 }
 
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: scale(0.8); /* Начальное уменьшение */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* Окончательная нормальная масштаб */
+  }
+}
 
 .works-gallery img:hover {
   transform: scale(1.05); /* Эффект увеличения */
@@ -98,45 +133,45 @@ a {
 
 /* Footer */
 .footer {
-background: #fff;
-color: #000;
-text-align: center;
-padding: 20px;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 20px;
 }
 
 .footer .contact-info .contact-title {
-font-size: 2.7rem; /* Увеличенный текст "Contact Me" */
-font-weight: 400;
-margin: 10px 0;
+  font-size: 2.7rem; /* Увеличенный текст "Contact Me" */
+  font-weight: 400;
+  margin: 10px 0;
 }
 
 .footer .contact-info .email-text {
-margin: 10px 0;
-font-size: 1.5rem;
-color: #000;
-font-weight: 400;
+  margin: 10px 0;
+  font-size: 1.5rem;
+  color: #000;
+  font-weight: 400;
 }
 
 .footer .contact-info .instagram-link {
-display: inline-block; /* Чтобы можно было применять цветовые эффекты */
-margin: 10px 0;
-font-size: 2.5rem;
-color: #e60000; /* Красный цвет текста */
-text-decoration: none; /* Убираем подчёркивание */
-transition: all 0.3s ease; /* Плавный переход */
-font-weight: 400;
+  display: inline-block; /* Чтобы можно было применять цветовые эффекты */
+  margin: 10px 0;
+  font-size: 2.5rem;
+  color: #e60000; /* Красный цвет текста */
+  text-decoration: none; /* Убираем подчёркивание */
+  transition: all 0.3s ease; /* Плавный переход */
+  font-weight: 400;
 }
 
 .footer .contact-info .instagram-link:hover {
-background-color: #e60000; /* Красный фон при наведении */
-color: #fff; /* Белый текст при наведении */
-padding: 5px 10px; /* Немного добавляем отступы для эффекта кнопки */
-border-radius: 5px; /* Закругляем края */
+  background-color: #e60000; /* Красный фон при наведении */
+  color: #fff; /* Белый текст при наведении */
+  padding: 5px 10px; /* Немного добавляем отступы для эффекта кнопки */
+  border-radius: 5px; /* Закругляем края */
 }
 
 .footer .contact-info .email-text:hover,
 .footer .contact-info .contact-title:hover {
-cursor: default; /* Указатель не меняется, подчёркивая, что элементы не кликабельны */
+  cursor: default; /* Указатель не меняется, подчёркивая, что элементы не кликабельны */
 }
 
 /* Адаптивность */
@@ -146,23 +181,18 @@ cursor: default; /* Указатель не меняется, подчёркив
     align-items: center;
   }
 
-
-    .title {
-      text-align: center; /* Вернуть центрирование */
-      margin-left: 0;
-      left: 0;
-    }
-
-    .works-gallery {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Уменьшаем минимальный размер ячеек */
-      gap: 15px; /* Меньше расстояние между изображениями */
-    }
-  
- 
-  
+  .title {
+    text-align: center; /* Вернуть центрирование */
+    margin-left: 0;
+    left: 0;
+  }
 
   .works-gallery {
- 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Уменьшаем минимальный размер ячеек */
+    gap: 15px; /* Меньше расстояние между изображениями */
+  }
+
+  .works-gallery {
     gap: 50px;
   }
 }
@@ -177,116 +207,101 @@ cursor: default; /* Указатель не меняется, подчёркив
     gap: 30px; /* Минимальное расстояние между блоками */
   }
 
-
   .footer .contact-info p {
     font-size: 0.8rem;
   }
 }
 
-
-
-
-
-
-
-
-
 /* Pop-up */
 .popup {
-display: none;
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.8);
-z-index: 1000;
-justify-content: center;
-align-items: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Изначально скрыт */
+  animation: fadeInPopup 0.5s ease forwards; /* Плавное открытие попапа */
 }
 
+@keyframes fadeInPopup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Плавное изменение прозрачности при открытии попапа */
 .popup-content {
-display: flex;
-background: #fff;
-max-height: 90%;
-overflow: hidden;
-width: 80%;
-max-width: 1000px;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  background: #fff;
+  max-height: 90%;
+  overflow: hidden;
+  width: 80%;
+  max-width: 1000px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeInPopupContent 0.5s ease forwards; /* Плавное появление содержимого */
 }
 
-.popup-left img {
-max-width: 100%;
-height: auto;
+@keyframes fadeInPopupContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.popup-right {
-padding: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-}
-
-.popup-right p {
-font-size: 1.2rem;
-color: #333;
-text-align: center;
-}
-
-
-.popup-title {
-  font-size: 1.5rem; /* Размер текста для названия и года */
-  font-weight: bold; /* Жирный текст */
-  margin: 0; /* Убираем лишние отступы */
-  text-align: center; /* Центрирование текста */
-}
-
-.popup-material {
-  font-size: 1rem; /* Размер текста для материала и размеров */
-  color: #555; /* Более нейтральный цвет */
-  text-align: center; /* Центрирование текста */
-  margin: 10px 0 0; /* Отступ сверху */
-}
-
-/* Фиксированное расположение кнопки закрытия */
+/* Закрытие попапа */
 .close-popup {
-position: fixed;
-top: 20px; /* Отступ сверху */
-right: 20px; /* Отступ справа */
-background: transparent;
-border: none;
-font-size: 2rem;
-cursor: pointer;
-color: #fff;
-z-index: 1050; /* Убедитесь, что кнопка выше других элементов */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1050;
+  opacity: 0;
+  animation: fadeInCloseButton 0.5s ease forwards; /* Плавное появление кнопки закрытия */
+}
+
+@keyframes fadeInCloseButton {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Адаптивность для экранов от 320px до 600px */
 @media (max-width: 600px) {
-.popup-content {
-flex-direction: column; /* Меняем направление на вертикальное: картинка сверху, текст снизу */
+  .popup-content {
+    flex-direction: column; /* Меняем направление на вертикальное: картинка сверху, текст снизу */
+  }
+
+  .popup-left img {
+    width: 100%; /* Картинка будет занимать всю ширину */
+    height: auto; /* Чтобы сохранить пропорции */
+  }
+
+  .popup-right p {
+    font-size: 1rem; /* Немного уменьшить размер текста для маленьких экранов */
+  }
 }
-
-.popup-left img {
-width: 100%; /* Картинка будет занимать всю ширину */
-height: auto; /* Чтобы сохранить пропорции */
-}
-
-.popup-right p {
-font-size: 1rem; /* Немного уменьшить размер текста для маленьких экранов */
-}
-
-
-}
-
-
-
-
 
 /* Адаптивность для экранов от 320px до 480px */
 @media (max-width: 480px) {
-.popup-right p {
-font-size: 0.9rem; /* Еще немного уменьшить текст на очень маленьких экранах */
-}
+  .popup-right p {
+    font-size: 0.9rem; /* Еще немного уменьшить текст на очень маленьких экранах */
+  }
 }

@@ -1,12 +1,11 @@
 @font-face {
   font-family: 'Ami-Regular';
   src: url('../fonts/Ami-Regular.woff2') format('woff2'),
-  url('../fonts/Ami-Regular.woff') format('woff'),
+       url('../fonts/Ami-Regular.woff') format('woff'),
        url('../fonts/Ami-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-
 
 body, html {
   margin: 0;
@@ -14,54 +13,70 @@ body, html {
   box-sizing: border-box;
   font-family: 'Ami-Regular', sans-serif;
   height: 100%; 
+  overflow: hidden; /* Чтобы фоновое изображение не прокручивалось */
+  animation: fadeInBody 1s ease-out forwards;
 }
 
-
-.navbar {
-  display: flex;
-  justify-content: center; 
-  gap: 20px; 
-  
-  padding: 10px 0;
-  position: fixed; 
-  width: 100%; 
-  z-index: 10; 
+/* Анимация для появления фона */
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
+/* Анимация для появления текста */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Начинаем с немного смещенной позиции */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Возвращаем в нормальное положение */
+  }
 }
 
-.nav-link:hover {
-  color: #bbb7b3;
+/* Анимация для кнопки */
+@keyframes fadeInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Основной блок */
+/* Фоновый блок с анимацией */
 .background {
   background-image: url('../img/main.webp'); 
   background-size: cover;
   background-position: center;
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center; 
-  flex-direction: column; 
+  justify-content: center;
+  flex-direction: column;
   color: #fff;
   text-align: center;
+  opacity: 0; /* Начинаем с невидимого фона */
+  animation: fadeInBackground 1.5s ease-out forwards; /* Добавляем анимацию */
 }
 
 .main-title {
   font-size: 7rem;
-  margin: 0; 
-  position: relative; 
+  margin: 0;
+  position: relative;
   font-weight: 400;
-
+  opacity: 0;
+  animation: fadeInText 1s ease-out 0.5s forwards; /* Задержка 0.5s для анимации */
 }
 
-.main-title-link{
+.main-title-link {
   text-decoration: none;
   color: #fff;
   transition: color 0.3s ease;
@@ -73,11 +88,11 @@ body, html {
   text-decoration: none;
   padding: 10px 20px;
   transition: all 0.3s ease;
-  
- 
   position: relative;
-  top: 150px; 
+  top: 150px;
   left: 30px;
+  opacity: 0;
+  animation: fadeInButton 1s ease-out 1s forwards; /* Задержка 1s для анимации */
 }
 
 .works-button:hover {
@@ -93,8 +108,8 @@ body, html {
   .works-button {
       font-size: 1.2rem;
       padding: 8px 16px;
-      top: 150px; 
-      left: 20px; 
+      top: 150px;
+      left: 20px;
   }
 
   .nav-link {
@@ -110,8 +125,8 @@ body, html {
   .works-button {
       font-size: 1rem;
       padding: 6px 12px;
-      top: 150px; 
-      left: 10px; 
+      top: 150px;
+      left: 10px;
   }
 
   .navbar {

@@ -57,11 +57,12 @@ a {
   font-size: 1.2rem;
   color: #fff;
   text-decoration: none;
- 
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Плавное изменение цвета и подчеркивания */
 }
 
 .menu-link:hover {
-  text-decoration: underline;
+
+  color: #8b8585; /* Цвет при наведении */
 }
 
 /* Заголовок "Biography" */
@@ -186,7 +187,7 @@ a {
 
   .page-title {
     font-size: 2rem;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .main-content {
