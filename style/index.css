@@ -119,7 +119,7 @@ body, html {
 
 @media (max-width: 480px) {
   .main-title {
-      font-size: 3rem;
+      font-size: 4rem;
   }
 
   .works-button {
@@ -133,3 +133,4 @@ body, html {
       gap: 10px;
   }
 }
+
